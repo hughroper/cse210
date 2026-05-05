@@ -17,44 +17,41 @@ class Program
 
         DisplayResult(userName, squareNumber);
 
+    }
 
+    static void DisplayWelcome()
+    {
+        Console.WriteLine("Welcome to the program!");
+    }
 
+    static string PromptUserName()
+    {
+        Console.Write("Please enter your name: ");
+        string userName = Console.ReadLine();
+        // Console.WriteLine(userName);
 
-        static void DisplayWelcome()
-        {
-            Console.WriteLine("Welcome to the program!");
-        }
+        return userName;
+    }
 
-        static string PromptUserName()
-        {
-            Console.Write("Please enter your name: ");
-            string userName = Console.ReadLine();
-            // Console.WriteLine(userName);
+    static int PromptUserNumber()
+    {
+        Console.Write("Please enter your favorite number: ");
+        string userNumber = Console.ReadLine();
+        int number = int.Parse(userNumber);
 
-            return userName;
-        }
+        return number;
+    }
 
-        static int PromptUserNumber()
-        {
-            Console.Write("Please enter your favorite number: ");
-            string userNumber = Console.ReadLine();
-            int number = int.Parse(userNumber);
+    static int SquareNumber(int number)
+    {
+        int square = number * number;
 
-            return number;
-        }
+        return square;
+    }
 
-        static int SquareNumber(int number)
-        {
-            int square = number * number;
-
-            return square;
-        }
-
-        void DisplayResult(string name, int square)
-        {
-            Console.WriteLine($"{name}, the square of your number is {square}");
-        }
-
+    static void DisplayResult(string name, int square)
+    {
+        Console.WriteLine($"{name}, the square of your number is {square}");
     }
 
 }
