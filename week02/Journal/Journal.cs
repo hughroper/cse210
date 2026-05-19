@@ -1,25 +1,52 @@
+using System.IO;
 public class Journal
 {
 
-    public List<Entry> _entries;
+    public List<Entry> _entries = new List<Entry>();
 
     public void AddEntry(Entry newEntry)
     {
-        // add new journal entry
+        _entries.Add(newEntry);
     }
 
     public void DisplayAll()
     {
-        // display all journal entries
+        foreach (Entry entry in _entries)
+        {
+            entry.Display();
+            Console.WriteLine();
+        }
     }
 
-    public void SaveToFile(string file)
+    public void SaveToFile(string fileName)
     {
-        // save entries to file
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            foreach (Entry entry in _entries)
+            {
+                outputFile.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}");
+            }
+        }
     }
 
-    public void LoadFromFile(string file)
+    public void LoadFromFile(string fileName)
     {
-        // load entries from file
+        string[] lines = File.ReadAllLines(fileName);
+
+        _entries = new List<Entry>();
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split("|");
+
+            Entry entry = new Entry();
+
+            entry._date = parts[0];
+            entry._promptText = parts[1];
+            entry._entryText = parts[2];
+
+            _entries.Add(entry);
+        }
     }
+
 }

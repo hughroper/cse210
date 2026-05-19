@@ -1,11 +1,24 @@
 public class PromptGen
 {
-    public List<string> _prompts;
+    public List<string> _prompts = new List<string>();
+
+    public PromptGen()
+    {
+        _prompts.Add("Who was the most interesting person I interacted with today?");
+        _prompts.Add("What was the best part of my day?");
+        _prompts.Add("How did I see the hand of the Lord in my life today?");
+        _prompts.Add("What was the strongest emotion I felt today?");
+        _prompts.Add("If I had one thing I could do over today, what would it be?");
+        _prompts.Add("How did you see the hand of the Lord in your life today?");
+    }
 
     public string GetRandomPrompt()
     {
-        // select and return random prompt
-        return "";
+        Random random = new Random();
+
+        int index = random.Next(_prompts.Count);
+
+        return _prompts[index];
     }
 
 }
