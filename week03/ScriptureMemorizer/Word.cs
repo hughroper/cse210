@@ -27,7 +27,15 @@ public class Word
 
     public string GetDisplayText()
     {
-        return _text;
+        if (_isHidden == false)
+        {
+            return _text;
+        }
+        else
+        {
+            return "_____";
+        }
+
     }
 
 }
