@@ -33,7 +33,7 @@ public class Word
         }
         else
         {
-            return "_____";
+            return new string('_', _text.Length);
         }
 
     }

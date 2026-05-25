@@ -1,5 +1,3 @@
-using System.Reflection.Metadata;
-
 public class Scripture
 {
 
@@ -7,9 +5,9 @@ public class Scripture
 
     private List<Word> _words;
 
-    public Scripture(Reference Reference, string text)
+    public Scripture(Reference reference, string text)
     {
-        _reference = Reference;
+        _reference = reference;
         _words = new List<Word>();
         string[] arrayOfWords = text.Split();
         foreach (string word in arrayOfWords)
@@ -23,10 +21,19 @@ public class Scripture
     public void HideRandomWords(int numberToHide)
     {
         Random randomGenerator = new Random();
-        for (int i = 0; i < numberToHide; i++)
+
+        for (int i = 0; i < numberToHide && !IsCompletelyHidden(); i++)
         {
             int randomIndex = randomGenerator.Next(_words.Count);
-            _words[randomIndex].Hide();
+
+            if (_words[randomIndex].IsHidden())
+            {
+                i--;
+            }
+            else
+            {
+                _words[randomIndex].Hide();
+            }
         }
     }
 
