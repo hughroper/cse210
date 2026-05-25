@@ -1,3 +1,5 @@
+using System.Reflection.Metadata;
+
 public class Scripture
 {
 
@@ -20,7 +22,12 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
-
+        Random randomGenerator = new Random();
+        for (int i = 0; i < numberToHide; i++)
+        {
+            int randomIndex = randomGenerator.Next(_words.Count);
+            _words[randomIndex].Hide();
+        }
     }
 
     public string GetDisplayText()
