@@ -31,6 +31,8 @@ class Program
         video1.AddComment(c2);
         video1.AddComment(c3);
 
+        Console.WriteLine($"\n");
+
         video1.DisplayVideoInfo();
 
 
