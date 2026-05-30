@@ -86,7 +86,9 @@ class Program
 
         Console.WriteLine(order2.GetTotalCost());
 
+        Console.WriteLine();
 
 
     }
 }
+
