@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Console.WriteLine("Hello World! This is the YouTubeVideos Project.");
 
         Video video1 = new Video(
             "How to Use a Mesh Radio",
@@ -34,7 +33,6 @@ class Program
         Console.WriteLine($"\n");
 
         video1.DisplayVideoInfo();
-
 
     }
 }
